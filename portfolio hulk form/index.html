@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lab 4 - Using jQuery Plug-ins</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<script type="text/javascript" src="js/jQuery.js"></script>
+	<script type="text/javascript" src="jquery-validate.js"></script>
+	<script type="js/jquery-ui.min.js"></script>
+
+	<script>
+		$(function(){
+			$('input[type=date]').datepicker;
+			$('#registration_form').validate(
+				{
+					rules: {
+						first_name: 'required',
+						last_name: { required: true,minlength:2 },
+						email: {required:true,email:true}
+					},
+
+					messages: {
+						first_name: 'Please enter you first name.',
+						last_name:{
+							required:'Please enter your last name.',
+							minlength:'Your last name must be at least 2 characters.'
+						},
+
+						email: {
+							required: 'Please enter your email address',
+							email:'Please enter a valid email address'
+						}
+					} 
+				});
+
+		});
+	</script>
+</head>
+<body class="one" >
+<div>
+<ul>
+  <li><a  href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a class="active" href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+</div>
+
+	<form id="registration_form" action="success.html" method="post">
+	
+		<h2>Online Registration</h2>
+	
+		<div class="row">
+			<label>First Name</label>
+			<input name="first_name" required="required" type="text" />
+			
+			<div class="clear"></div>
+		</div>
+		
+		<div class="row">
+			<label>Last Name</label>
+			<input name="last_name" required="required" type="text" />
+			
+			<div class="clear"></div>
+		</div>
+		
+		<div class="row">
+			<label>Email</label>
+			<input name="email" required="required" type="email" />
+			
+			<div class="clear"></div>
+		</div>
+		
+		<!-- <div class="row">
+			<label>Desired Dates</label>
+			<input name="date" required="required" type="date" />
+			
+			<div class="clear"></div>
+		</div> -->
+		
+		<div class="row">
+			<label>&nbsp;</label>
+			<input class="submit" type="submit" value="Register Now" />
+			
+			<div class="clear"></div>
+		</div>
+	
+	</form>
+
+</body>
+</html>
